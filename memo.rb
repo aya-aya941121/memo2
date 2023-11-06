@@ -5,6 +5,11 @@ require "csv" # CSVファイルを扱うためのライブラリを読み込ん�
  memo_type = gets.to_i # ユーザーの入力値を取得し、数字へ変換しています
  
  if memo_type == 1
+   puts"ファイル名を入力してください"
+   file_name = gets.chomp
+   
+   csv_file_name = "#{file_name}.csv"
+   
    puts"新規メモの内容を入力してください"
    memo_content = readlines.join("\n").chomp
    
@@ -15,6 +20,11 @@ require "csv" # CSVファイルを扱うためのライブラリを読み込ん�
    puts"メモを作成しました"
    
 elsif memo_type == 2
+   puts"既存のファイル名を入力してください"
+   file_name = gets.chomp
+   
+   csv_file_name = "#{file_name}.csv"
+   
    puts"追記するメモの内容を入力してください"
    memo_content = readlines.join("\n").chomp
    CSV.open("memo.csv","a") do |csv|
@@ -26,5 +36,3 @@ elsif memo_type == 2
  else
    puts"１か２を入力してください"
  end
-   
-   
